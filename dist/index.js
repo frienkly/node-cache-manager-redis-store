@@ -85,7 +85,8 @@ var redisStore = function redisStore() {
            */
 
           if (!self.isCacheableValue(value)) {
-            return cb(new Error("\"".concat(value, "\" is not a cacheable value")));
+            continue; // for datastore caching
+            // return cb(new Error(`"${value}" is not a cacheable value`));
           }
 
           value = JSON.stringify(value) || '"undefined"';
