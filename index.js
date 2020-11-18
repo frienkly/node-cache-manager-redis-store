@@ -72,7 +72,8 @@ const redisStore = (...args) => {
            * Make sure the value is cacheable
            */
           if (!self.isCacheableValue(value)) {
-            return cb(new Error(`"${value}" is not a cacheable value`));
+            continue // for datastore caching
+            // return cb(new Error(`"${value}" is not a cacheable value`));
           }
 
           value = JSON.stringify(value) || '"undefined"';
